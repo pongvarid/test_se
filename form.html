@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-nav {
+            background: rgb(69, 194, 182);
+            background: linear-gradient(90deg, rgba(69, 194, 182, 1) 0%, rgba(38, 118, 163, 1) 100%);
+        }
+
+        .bg {
+            background-image: url('./assets/images/bg.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+    <ul class="flex bg-nav">
+        <li class="p-4 text-white">
+            <h2 class="pattaya-font logo">พงษ์วริษฐ์</h2>
+        </li>
+        <li class="p-4 text-white"><a href="./index.html">หน้าแรก</a></li>
+        <li class="p-4 text-white"><a class="active" href="./profile.html">ประวัติส่วนตัว (CSS
+                Framework)</a></li>
+        <li class="p-4 bg-blue-300   text-white"><a href="./form.html">ฟอร์ม (JS)</a></li>
+        <li class="p-4 text-white"><a href="./forrmVue.html">ฟอร์ม (VueJs)</a></li>
+        <li class="p-4 text-white"><a href="https://www.facebook.com/Pongvarid/">Facebook</a></li>
+    </ul>
+
+    <div class="h-screen relative bg">
+        <div style="z-index:1;" class="absolute bg-black w-full h-full opacity-25"></div>
+        <div class="flex flex-col justify-center items-center h-full  ">
+            <h1 class="text-3xl mt-2 text-white z-10">คำนวณสามเหลี่ยม</h1>
+           
+            <form id="form" class="z-10 mt-4" onsubmit="event.preventDefault(); calculate();">
+                <input required id="height" class="rounded-full p-3 ml-2 " type="number" placeholder="สูง" >
+                <input required id="width" class="rounded-full p-3 ml-2 " type="number" placeholder="ฐาน" >
+                <button type="submit" class="rounded-full p-3 bg-green-600 text-white w-40 ml-2 " >คำนวณ</button>
+            </form>
+            
+            <h3  class="text-2xl text-white z-10 mt-6">คำตอบ : <span id="result"></span></h3>
+        </div>
+    </div>
+
+ <script>
+     function calculate(){
+        let height = Number(document.getElementById('height').value);
+        let width =  Number(document.getElementById('width').value);
+        let result = 0.5*(height*width)
+        alert(`พื้นที่ : ${result}`);
+        document.getElementById('result').innerHTML =   result
+        document.getElementById('form').reset();
+     }
+ </script>
+
+</body>
+
+</html>
